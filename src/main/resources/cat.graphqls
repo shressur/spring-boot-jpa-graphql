@@ -1,0 +1,31 @@
+schema {
+    query: MyQuery,
+    mutation: MyMutation
+}
+type MyQuery{
+    testingApp: String
+    getAllCats: [Cat]
+    getCat(c_id: Int): Cat
+}
+
+type Cat{
+    id: Int,
+    nickName: String,
+    color: String,
+    age: Int
+}
+
+type MyMutation{
+#    testMutation: String
+
+    saveCat(c: inputTypeCat): Cat!
+    updateCat(new_cat: inputTypeCat): Cat
+    removeCat(id: Int): Boolean
+}
+
+input inputTypeCat{
+    id: Int,
+    nickName: String,
+    color: String,
+    age: Int
+}
